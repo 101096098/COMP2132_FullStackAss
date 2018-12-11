@@ -1,0 +1,44 @@
+<div class="container1">
+  <div class="wrapper text-center">
+    <div class="text-wrapper">
+      <div class="search-wrapper">
+          <input type="text" [(ngModel)]="title" class="input" placeholder="Search"> 
+      </div>
+     
+      <div class="result-wrapper" *ngFor = "let gam of  gameService.games| filter:title">
+        <div *ngIf="title"> 
+          <p> {{ gam.title}} </p>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+  
+  <div class = "container">
+  
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope = "col">Title</th>
+        <th scope = "col">Platform</th>
+        <th scope = "col">Genre</th>
+        <th scope = "col">Rating</th>
+        <th scope = "col">Publisher</th>
+        <th scope = "col">Release</th>
+        <th scope = "col">Status</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gam of gameService.games">
+        <td>{{ gam.title}} </td>
+        <td>{{ gam.platform}}</td>
+        <td>{{ gam.genre}}</td>
+        <td>{{ gam.rating}}</td>
+        <td> {{ gam.publisher}} </td>
+        <td> {{ gam.release}} </td>
+        <td> {{ gam.status}}  </td>
+      </tr>
+    </tbody>
+</table>
+</div>
